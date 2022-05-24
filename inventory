@@ -1,0 +1,9 @@
+[webservers]
+192.168.18.130
+
+
+[webservers:vars]
+db_user=db_admin
+db_pass=dbpassw0rd
+db_name=fortes_db
+
