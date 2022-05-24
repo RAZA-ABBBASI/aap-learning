@@ -8,9 +8,9 @@
        state: present
        update_cache: yes
       loop:
-       - mysql-server
-       - mysql-client 
-       - python3-mysqldb
+       - mariadb-server
+       - mariadb-client 
+       - python3-mysql
        - libmysqlclient-dev
       become: yes
     - name: start and enable mysql service
