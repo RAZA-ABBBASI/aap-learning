@@ -2,7 +2,7 @@
   become: yes
   hosts: all
   tasks:
-    - name: Installing Mysql  and dependencies
+    - name: Installing Mariadb  and dependencies
       package:
        name: "{{item}}"
        state: present
@@ -11,12 +11,12 @@
        - mariadb-server
        - python3-mysqlclient
       become: yes
-    - name: start and enable mysql service
+    - name: start and enable mariadb service
       service:
-        name: mysql
+        name: mariadb
         state: started
         enabled: yes
-    - name: creating mysql user (medium_post)
+    - name: creating mariadb user (medium_post)
       mysql_user:
         name: "{{db_user}}"
         password: "{{db_pass}}"
@@ -29,14 +29,14 @@
         state: present
     - name: Enable remote login to mysql
       lineinfile:
-         path: /etc/mysql/mysql.conf.d/mysqld.cnf
+         path: /etc/my.cnf.d/mariadb-server.cnf
          regexp: '^bind-address'
          line: 'bind-address = 0.0.0.0'
          backup: yes
       notify:
-         - Restart mysql
+         - Restart mariadb
   handlers:
-    - name: Restart mysql
+    - name: Restart mariadb
       service:
-        name: mysql
+        name: mariadb
         state: restarted
