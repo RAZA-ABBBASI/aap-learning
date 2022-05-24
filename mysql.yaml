@@ -9,8 +9,7 @@
        update_cache: yes
       loop:
        - mariadb-server
-       - mariadb-client 
-       - python3-mysql
+       - python3-mysqlclient
        - libmysqlclient-dev
       become: yes
     - name: start and enable mysql service
