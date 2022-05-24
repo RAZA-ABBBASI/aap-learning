@@ -10,7 +10,6 @@
       loop:
        - mariadb-server
        - python3-mysqlclient
-       - libmysqlclient-dev
       become: yes
     - name: start and enable mysql service
       service:
