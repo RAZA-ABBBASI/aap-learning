@@ -1,5 +1,0 @@
-db_user: db_admin
-db_pass: dbpassw0rd
-db_name: fortes_db
-test_var: testvalue
-

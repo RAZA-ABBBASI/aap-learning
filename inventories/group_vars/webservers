@@ -1,3 +1,0 @@
-http_port: 80
-ansible_host: 192.168.18.130
-ansible_user: devops
